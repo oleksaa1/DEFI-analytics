@@ -58,60 +58,55 @@
 │   ├── eslint.config.mjs
 │   ├── .env.example
 │   ├── .env                             # Local env (not committed)
-│   └── src/
-│       ├── app/
-│       │   ├── layout.tsx               # Root layout + providers
-│       │   ├── page.tsx                 # Landing page
-│       │   ├── globals.css              # Tailwind + theme
-│       │   ├── dashboard/page.tsx       # Portfolio dashboard
-│       │   ├── approvals/page.tsx       # Approval scanner
-│       │   ├── chat/page.tsx            # AI advisor
-│       │   └── api/
-│       │       ├── moralis/route.ts     # Moralis proxy (12 actions)
-│       │       └── ai/chat/route.ts     # OpenAI GPT-5.2 streaming
-│       │
-│       ├── components/
-│       │   ├── WalletProvider.tsx        # wagmi + RainbowKit setup
-│       │   ├── Navbar.tsx               # Navigation bar
-│       │   ├── Dashboard/
-│       │   │   ├── PortfolioSummary.tsx  # Net worth + stat cards
-│       │   │   ├── PortfolioChart.tsx    # Distribution pie chart
-│       │   │   ├── TokenBalances.tsx     # Token list + 24h change
-│       │   │   ├── DeFiPositions.tsx     # Protocol positions
-│       │   │   ├── NFTGallery.tsx        # NFT collection grid
-│       │   │   ├── TransactionHistory.tsx # Decoded tx history
-│       │   │   └── SwapHistory.tsx       # DEX swap history
-│       │   ├── Approvals/
-│       │   │   ├── ApprovalList.tsx      # Risk-scored approvals
-│       │   │   ├── BatchRevokeButton.tsx # Batch revoke UI
-│       │   │   └── RiskBadge.tsx         # Risk level badge
-│       │   ├── Chat/
-│       │   │   ├── ChatInterface.tsx     # Streaming chat UI
-│       │   │   └── MessageBubble.tsx     # Chat message renderer
-│       │   └── ui/
-│       │       ├── LoadingSpinner.tsx
-│       │       └── ErrorDisplay.tsx
-│       │
-│       ├── hooks/
-│       │   ├── usePortfolio.ts          # Net worth + token balances
-│       │   ├── useTokenBalances.ts      # Raw token balances
-│       │   ├── useDeFiPositions.ts      # DeFi protocol positions
-│       │   ├── useNFTs.ts               # NFT collections
-│       │   ├── useApprovals.ts          # Token approvals + risk
-│       │   ├── useTransactions.ts       # Decoded wallet history
-│       │   ├── useWalletStats.ts        # Wallet statistics
-│       │   ├── useSwaps.ts              # Token swap history
-│       │   └── usePnL.ts               # Profit & loss summary
-│       │
-│       ├── lib/
-│       │   ├── moralis.ts               # Moralis API client (12 fn)
-│       │   ├── ai.ts                    # System prompt builder
-│       │   ├── contracts.ts             # Contract ABIs + addresses
-│       │   ├── riskAnalysis.ts          # Approval risk scoring
-│       │   └── utils.ts                 # formatUSD, cn, etc.
-│       │
-│       └── types/
-│           └── index.ts                 # All TypeScript interfaces
+│   ├── app/
+│   │   ├── layout.tsx                   # Root layout + providers
+│   │   ├── page.tsx                     # Landing page
+│   │   ├── globals.css                  # Tailwind + theme
+│   │   ├── dashboard/page.tsx           # Portfolio dashboard
+│   │   ├── approvals/page.tsx           # Approval scanner
+│   │   ├── chat/page.tsx               # AI advisor
+│   │   └── api/
+│   │       ├── moralis/route.ts         # Moralis proxy (12 actions)
+│   │       └── ai/chat/route.ts         # OpenAI GPT-5.2 streaming
+│   ├── components/
+│   │   ├── WalletProvider.tsx           # wagmi + RainbowKit setup
+│   │   ├── Navbar.tsx                   # Navigation bar
+│   │   ├── Dashboard/
+│   │   │   ├── PortfolioSummary.tsx     # Net worth + stat cards
+│   │   │   ├── PortfolioChart.tsx       # Distribution pie chart
+│   │   │   ├── TokenBalances.tsx        # Token list + 24h change
+│   │   │   ├── DeFiPositions.tsx        # Protocol positions
+│   │   │   ├── NFTGallery.tsx           # NFT collection grid
+│   │   │   ├── TransactionHistory.tsx   # Decoded tx history
+│   │   │   └── SwapHistory.tsx          # DEX swap history
+│   │   ├── Approvals/
+│   │   │   ├── ApprovalList.tsx         # Risk-scored approvals
+│   │   │   ├── BatchRevokeButton.tsx    # Batch revoke UI
+│   │   │   └── RiskBadge.tsx            # Risk level badge
+│   │   ├── Chat/
+│   │   │   ├── ChatInterface.tsx        # Streaming chat UI
+│   │   │   └── MessageBubble.tsx        # Chat message renderer
+│   │   └── ui/
+│   │       ├── LoadingSpinner.tsx
+│   │       └── ErrorDisplay.tsx
+│   ├── hooks/
+│   │   ├── usePortfolio.ts              # Net worth + token balances
+│   │   ├── useTokenBalances.ts          # Raw token balances
+│   │   ├── useDeFiPositions.ts          # DeFi protocol positions
+│   │   ├── useNFTs.ts                   # NFT collections
+│   │   ├── useApprovals.ts              # Token approvals + risk
+│   │   ├── useTransactions.ts           # Decoded wallet history
+│   │   ├── useWalletStats.ts            # Wallet statistics
+│   │   ├── useSwaps.ts                  # Token swap history
+│   │   └── usePnL.ts                    # Profit & loss summary
+│   ├── lib/
+│   │   ├── moralis.ts                   # Moralis API client (12 fn)
+│   │   ├── ai.ts                        # System prompt builder
+│   │   ├── contracts.ts                 # Contract ABIs + addresses
+│   │   ├── riskAnalysis.ts              # Approval risk scoring
+│   │   └── utils.ts                     # formatUSD, cn, etc.
+│   └── types/
+│       └── index.ts                     # All TypeScript interfaces
 │
 └── contracts/                           # Hardhat project
     ├── package.json
@@ -183,7 +178,7 @@ npx hardhat run scripts/deploy.ts --network bscTestnet
 
 After deployment, update:
 - `bsc.address` with the contract address
-- `src/src/lib/contracts.ts` with the deployed address
+- `src/lib/contracts.ts` with the deployed address
 
 ## Moralis Web3 Data API Integration
 
